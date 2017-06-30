@@ -1,0 +1,27 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+	<link  t:type="any" rel="stylesheet" type="text/css" href="context:css/common.css"></link>
+</head>
+
+<body>
+
+		<form t:type="form" t:id="wmForm">
+			<table>
+				<tr>
+					<td> <t:label for="workManagerName"/>:</td> <td> <input t:type="textfield" t:id="workManagerName"  label="WorkManager名称" value="wmBean.name" validate="required"/></td>
+				</tr>
+				<tr>
+					<td><t:label for="maxConstraintName"/>:</td> <td><input t:type="textfield" t:id="maxConstraintName" label="Max Constraint名称"  value="wmBean.maxConstraintName" validate="required"/></td>
+				</tr>
+				<tr>
+					<td><t:label for="maxConstraintValue"/>:</td> <td><input t:type="textfield" t:id="maxConstraintValue" label="Max Constraint值"  value="wmBean.maxConstraintValue" validate="required"/></td>
+				</tr>
+				<tr>
+					<td></td> <td>  <t:submit t:id="submit" value="提交"/></td>
+				</tr>
+			</table>
+	</form>
+</body>
+
+</html>

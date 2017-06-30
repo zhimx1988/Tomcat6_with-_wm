@@ -1,0 +1,72 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+	<script t:type="dojo/lib"/>
+	<style type="text/css">
+
+
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		padding: 0;
+		margin: 0;
+		background-color:#fff;
+		background-image:none;
+		
+	}
+	</style>
+ 	<link  t:type="any" rel="stylesheet" type="text/css" href="context:css/common.css"></link>
+</head>
+
+<body t:type="dojo/body">
+
+		<div t:type="zone" t:id="wmInfoZone" id="wmInfoZone" update="show" style="margin-top: 20px; margin-bottom: 5px; margin-left: 20px; margin-right: 5px ">
+			<table border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+				 <thead>
+			       <th>Application Name</th>
+			       <th>WorkManager</th><th>In Progress</th><th>Max Queue Size</th><th>Total Complete Count</th><th>Throughput</th><th>CPU Information</th> <th>Average Utilization</th><th>Description</th>
+			     </thead>
+			     <t:loop source="wmSnapshots" value="snapshot" >
+			     
+				  
+				       
+		       		 <t:loop source="snapshot.wmConfigBeans" value="configBean" index="index" >
+		       		    <tr>
+			       		    <t:if test="firstWm">
+			       		    	<td class="normal2" rowspan="${snapshot.size}">${snapshot.appName}</td>
+			       		    </t:if>
+			       		   <td class="normal2">${configBean.wmName}(${configBean.maxConstraintValue})</td>
+			       		   <!--  
+						   <td class="normal2">${configBean.wmType}</td>
+						   <td class="normal2">${configBean.wmNameReferencedByContextConstraint}</td>
+						   <td class="normal2">${configBean.user} </td>
+						   <td class="normal2">${configBean.group} </td>
+						   -->
+						   
+						   <td class="normal2">${configBean.inProgress}</td>
+						   <td class="normal2">${configBean.maxQueueSize}</td>
+						   <td class="normal2">${configBean.completedCount}</td>
+						   <td class="normal2">${configBean.throughput}</td>
+					       <td class="common_font2"><t:tablecell value="prop:cpuValue"/></td>
+					       <td class="normal2">${configBean.avgUtil}</td>
+					       <td class="normal2">description...</td>
+					       
+					     </tr>
+		       		 </t:loop>
+				     
+				</t:loop>
+			</table>
+		</div>
+	<script t:type="dojo/tupdater" t:id="zoneUpdater" zone="wmInfoZone"/>
+</body>
+
+
+<script type="text/javascript" >
+	timeID1=setInterval("updateZone()",${prop:interval});
+	
+	function updateZone(){
+		zoneUpdater.update();
+	}
+	
+</script>
+</html>

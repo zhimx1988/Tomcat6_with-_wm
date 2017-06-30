@@ -1,0 +1,24 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+	<link  t:type="any" rel="stylesheet" type="text/css" href="context:css/common.css"></link>
+</head>
+
+<body>
+
+		<div style="margin-top: 20px; margin-bottom: 5px; margin-left: 20px; margin-right: 5px ">
+			<table border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC" width="100%">
+				 <thead>
+			       <th>Web Module Name</th><th>Description</th>
+			     </thead>
+			     <t:loop source="webappList" value="webapp" >
+			     <tr>
+			       <td class="normal2"><a t:type="pagelink" page="workmanagerList" context="webapp">${webapp}</a></td>
+			       <td class="normal2">description...</td>
+			     </tr>
+				</t:loop>
+			</table>
+		</div>
+</body>
+
+</html>

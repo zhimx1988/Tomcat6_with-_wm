@@ -1,0 +1,358 @@
+<!--
+
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Title      : Concrete
+Version    : 1.0
+Released   : 20080825
+Description: A Web 2.0 design with fluid width suitable for blogs and small websites.
+-->
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+ <head>
+ 	<title>WorkManager</title>
+	 <style type="text/css">
+	<!--
+	.STYLE1 {
+		color: #FFFFFF;
+		font-weight: bold;
+	}
+	.STYLE4 {font-size: x-small}
+	.STYLE10 {font-size: 12px}
+	-->
+	    </style>
+	    <link rel="stylesheet" type="text/css" href="${asset:context:/css/common.css}"/>
+ </head>
+ <body>
+ 
+ <table width="100%" height="95%" border="1" bordercolor="#384379"  cellpadding="2" cellspacing="0">
+ 	<tr>
+ 	 <td valign="top"  bordercolor="#384379">
+ 	 	<table width="100%" border="1" bordercolor="#384379"  cellpadding="2" cellspacing="5">
+        	<tr>
+				<td valign="top"  bordercolor="#FFFFFF">
+				
+				<!--  workmanager talbe & workmanager chart -->
+ 	 				<table width="63%" borderColor="#890D0D" border="0" cellspacing="0" bordercolorlight="#666699" bordercolordark="#FFFFFF" cellpadding="5">
+                    	<tr>
+							<td width="38%">
+								<table width="350" border="1" cellspacing="0" bordercolor="#789BBA" style="border-collapse:collapse">
+                                	<tr>
+                                    	<td width="350">
+                                                      	
+                                                      	<!-- -->
+                                                      	<div t:type="zone" t:id="wmTableZone" id="wmTableZone" update="show">
+       													<table  border="0" cellspacing="0" bordercolor="#FFFFFF">
+											                    <tr>
+											                    <td width="350" height="23" background="images/bg-tableheader.gif" class="STYLE1" scope="col"><div align="left">线程池</div></td>
+											                    </tr>
+											                    <tr>
+											                    <td>
+											                    <table width="350" border="0" cellspacing="0">               
+											                    
+																<tr background="images/bg_columnheadind_big.gif" >
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >线程池名称</font></td>
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >${threadPoolRuntime.name}</font></td>
+											                    </tr >
+											
+											                    <tr bgcolor="#FFFFFF">
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >等待队列长度</font></td>
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >${threadPoolRuntime.queueLength}</font></td>
+											                    </tr>
+											                    
+											                    <tr background="images/bg_columnheadind_big.gif" >
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >吞吐量</font></td>
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >${threadPoolRuntime.throughput}</font></td>
+											                    </tr >
+											
+																<tr bgcolor="#FFFFFF">
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >活动线程数</font></td>
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >${threadPoolRuntime.executeThreadCount}</font></td>
+											                    </tr >
+											                    
+											                    <tr background="images/bg_columnheadind_big.gif" >
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >闲置线程数</font></td>
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >${threadPoolRuntime.executeThreadIdleCount}</font></td>
+											                    </tr >
+											                    
+											                    <tr bgcolor="#FFFFFF">
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >备用线程数</font></td>
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >${threadPoolRuntime.standbyThreadCount}</font></td>
+											                    </tr >
+											                          
+											                    <tr background="images/bg_columnheadind_big.gif" >
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >线程池容量</font></td>
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >${threadPoolRuntime.executeThreadTotalCount}</font></td>
+											                    </tr>
+											
+											                    <tr bgcolor="#FFFFFF">
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >用户请求等待数量</font></td>
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >${threadPoolRuntime.pendingUserRequestCount}</font></td>
+											                    </tr>
+											                    
+											                    <tr background="images/bg_columnheadind_big.gif" >
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >用户请求拒绝数量</font></td>
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >${threadPoolRuntime.rejectedRequestCount}</font></td>
+											                    </tr>                   
+											                    
+											                   	<tr bgcolor="#FFFFFF">
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >系统允许最大负载</font></td>
+											                    <td height="20" background="images/bg_columnheadind_big.gif" ><font class="STYLE10" >${threadPoolRuntime.sharedCapacityForWorkManagers}</font></td>
+											                    </tr >                 
+											                    
+											                    <tr background="images/bg_columnheadind_big.gif" >
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >完成任务数</font></td>
+											                    <td height="20" bgcolor="#FFFFFF" ><font class="STYLE10" >${threadPoolRuntime.completedRequestCount}</font></td>
+											                    </tr>              
+											                 
+																</table>
+																</td>
+																</tr>
+											                    <tr>
+											                    <td height="20" background="images/grayline.gif"><div align="left" class="STYLE3 STYLE4"></div></td>
+											                    </tr>
+											                </table>
+                                                      	</div>
+                                                      	<!-- -->
+                                     
+                                        </td>
+                                  </tr>
+                               </table>
+							</td>
+								
+							<td width="62%">
+								<table>
+								<tr>
+								
+								<td>
+								<table width="371" border="1" cellspacing="0" bordercolor="#789BBA" style="border-collapse:collapse">
+	                                <tr>
+	                                   <td width="371">
+	                                   <div id="workManagerChart">
+	                                   <!--  
+	                                       <table width="365"  height="270" border="0" cellspacing="0" bordercolor="#FFFFFF">
+	                                         <tr>
+	                                           <td width="365" height="23" background="${asset:context:/images/bg-tableheader.gif}" bgcolor="#2CAEED"><div align="center" class="STYLE1">
+	                                               <div align="left"></div>
+	                                           </div></td>
+	                                         </tr>
+	                                         <tr>
+	                                           <td width="365" height="225"><span align="center"></span></td>
+	                                         </tr>
+	                                         <tr>
+	                                           <td height="20" background="${asset:context:/images/grayline.gif}"><div align="left" class="STYLE3 STYLE4">数据装载中...</div></td>
+	                                         </tr>
+	                                       </table>
+	                                      --> 
+	                                       	<table width="370px" height="280px" border="0" cellspacing="0" bordercolor="#FFFFFF">
+												<tr>
+													<td width="365" height="23" background="images/bg-tableheader.gif" bgcolor="#2CAEED">
+														<div align="center" class="STYLE1"> <div align="left"></div></div>
+													</td>
+												</tr>
+												<tr>
+													<td width="368" height="237">
+													   <div t:type="zone" t:id="wmChartZone" id="wmChartZone"  update="show">
+															<t:chart width="365" height="225"  border="0" chart="wmChart"/>
+													    </div>
+													</td>
+												</tr>
+												<tr>
+													<td height="20" background="images/grayline.gif"></td>
+												</tr>
+											</table>
+	                                   </div>
+	                                   </td>
+	                                 </tr>
+                                  </table>
+                                  </td>
+                                  
+                                  <td>
+                                  <table width="371" border="1" cellspacing="0" bordercolor="#789BBA" style="border-collapse:collapse">
+	                                <tr>
+	                                   <td width="371">
+	                                   <div id="wmThroughputChart">
+	                                   <!--  
+	                                       <table width="365"  height="270" border="0" cellspacing="0" bordercolor="#FFFFFF">
+	                                         <tr>
+	                                           <td width="365" height="23" background="${asset:context:/images/bg-tableheader.gif}" bgcolor="#2CAEED"><div align="center" class="STYLE1">
+	                                               <div align="left"></div>
+	                                           </div></td>
+	                                         </tr>
+	                                         <tr>
+	                                           <td width="365" height="225"><span align="center"></span></td>
+	                                         </tr>
+	                                         <tr>
+	                                           <td height="20" background="${asset:context:/images/grayline.gif}"><div align="left" class="STYLE3 STYLE4">数据装载中...</div></td>
+	                                         </tr>
+	                                       </table>
+	                                      --> 
+	                                       	<table width="370px" height="280px" border="0" cellspacing="0" bordercolor="#FFFFFF">
+												<tr>
+													<td width="365" height="23" background="images/bg-tableheader.gif" bgcolor="#2CAEED">
+														<div align="center" class="STYLE1"> <div align="left"></div></div>
+													</td>
+												</tr>
+												<tr>
+													<td width="368" height="237">
+													   <div t:type="zone" t:id="throughputChartZone" id="throughputChartZone"  update="show">
+															<t:chart width="365" height="225"  border="0" chart="throughputChart"/>
+													    </div>
+													</td>
+												</tr>
+												<tr>
+													<td height="20" background="images/grayline.gif"></td>
+												</tr>
+											</table>
+	                                   </div>
+	                                   </td>
+	                                 </tr>
+                                  </table>
+                                  </td>
+                                  
+                                  </tr>
+                                  </table>
+                                  
+							</td>
+
+							
+                        </tr>
+					</table>
+					
+					
+					<table>
+						<tr>
+							<td >
+							  <table  width="100%" border="1" cellspacing="0" bordercolor="#789BBA" style="border-collapse:collapse">
+							  		
+	                              <tr>
+	                                <td width="1150">
+	                                <!--  workmanager info table -->
+	                                <div id="workmanagertable2">
+	                                    <table  width="100%" border="0" cellspacing="0" bordercolor="#FFFFFF">
+	                                      <tr>
+	                                        <td  height="23" background="${asset:context:/images/bg-tableheader.gif}" class="STYLE1" scope="col">
+	                                        <div align="center" class="STYLE1">
+	                                            <div align="left">工作管理器</div>
+	                                        </div>
+	                                        </td>
+	                                      </tr>
+	                                      
+	                                      <tr >
+	                                      	<td>
+	                                      	<div t:type="zone" t:id="wmInfoZone" id="wmInfoZone" update="show">
+	                                      	 <table width="100%">
+	                                      	   <thead>
+	                                      	  <th  height="20"  background="${asset:context:/images/grayline.gif}" ><span class="STYLE10">所属应用</span></th>
+		                                      <th>
+		                                      	<table  border="0" cellspacing="0">
+			                                        <tr >
+			                                          <td width="100"   height="20"  background="${asset:context:/images/grayline.gif}" ><span class="STYLE10">名称</span></td>
+			                                          <td width="100"   height="20"  background="${asset:context:/images/grayline.gif}"><span class="STYLE10">类型</span></td>
+			                                          <td width="100"   height="20" background="${asset:context:/images/grayline.gif}" ><span class="STYLE10">组件名称</span></td>
+			                                          <td width="100"   height="20" background="${asset:context:/images/grayline.gif}" ><span class="STYLE10">请求等待数</span></td>
+			                                          <td width="100"   height="20" background="${asset:context:/images/grayline.gif}" ><span class="STYLE10">超时线程数</span></td>
+			                                          <td  width="100" height="20" background="${asset:context:/images/grayline.gif}" ><span class="STYLE10">完成任务数</span></td>
+			                                        </tr>
+			                                        <!-- 
+			                                        <tr  >
+			                                          <td height="20" background="${asset:context:/images/bg_columnheadind_big.gif}" ></td>
+			                                          <td height="20" background="${asset:context:/images/bg_columnheadind_big.gif}" ></td>
+			                                          <td height="20" background="${asset:context:/images/bg_columnheadind_big.gif}" ></td>
+			                                          <td height="20" background="${asset:context:/images/bg_columnheadind_big.gif}" ></td>
+			                                          <td height="20" background="${asset:context:/images/bg_columnheadind_big.gif}" ></td>
+			                                          <td height="20" background="${asset:context:/images/bg_columnheadind_big.gif}" ></td>
+			                                        </tr >
+			                                         -->
+		                                      	</table>
+		                                      </th>
+	                                     	 </thead>
+	                                      
+	                                      
+	                                      <t:loop source="workManagerAppList" value="workManagerAppStaNode" index="appIndex">
+	                                      <tr>
+	                                         <t:if test="appOdd">
+	                                             <td height="20" bgcolor="#FFFFFF"><span class="STYLE10">${workManagerAppStaNode.appName}</span></td>
+	                                             <p:else>
+	                                             <td height="20" bgcolor="#C5C5C5"><span class="STYLE10">${workManagerAppStaNode.appName}</span></td>
+	                                             </p:else>
+	                                         </t:if>
+	                                         
+	                                         <td>
+	                                         <table border="0" cellspacing="0">
+	                                          
+	                                         <t:loop source="workManagerAppStaNode.workManagerNodes" value="wmNode" index="wmNodeIndex">
+	                                         	<t:if test="nodeOdd">
+	                                         	<tr>
+	                                       			<td width="100" height="20" bgcolor="#FFFFFF"><span class="STYLE10">${wmNode.name}</span></td>
+													<td width="100" height="20" bgcolor="#FFFFFF"><span class="STYLE10">${wmNode.type}</span></td>
+													<td width="100" height="20" bgcolor="#FFFFFF"><span class="STYLE10">${wmNode.moduleName}</span></td>
+													<td width="100" height="20" bgcolor="#FFFFFF"><span class="STYLE10">${wmNode.pendingRequests}</span></td>
+													<td width="100" height="20" bgcolor="#FFFFFF"><span class="STYLE10">${wmNode.stuckThreadCount}</span></td>
+													<td width="100" height="20" bgcolor="#FFFFFF"><span class="STYLE10">${wmNode.completedRequests}</span></td>
+												</tr>
+												<p:else>
+												<tr>
+												   	<td width="100" height="20" background="${asset:context:/images/bg_columnheadind_big.gif}"><span class="STYLE10">${wmNode.name}</span></td>
+													<td width="100" height="20" background="${asset:context:/images/bg_columnheadind_big.gif}"><span class="STYLE10">${wmNode.type}</span></td>
+													<td width="100" height="20" background="${asset:context:/images/bg_columnheadind_big.gif}"><span class="STYLE10">${wmNode.moduleName}</span></td>
+													<td width="100" height="20" background="${asset:context:/images/bg_columnheadind_big.gif}"><span class="STYLE10">${wmNode.pendingRequests}</span></td>
+													<td width="100" height="20" background="${asset:context:/images/bg_columnheadind_big.gif}"><span class="STYLE10">${wmNode.stuckThreadCount}</span></td>
+													<td width="100" height="20" background="${asset:context:/images/bg_columnheadind_big.gif}"><span class="STYLE10">${wmNode.completedRequests}</span></td>
+												</tr>
+												</p:else>
+	                                         	</t:if>
+	                                         </t:loop>
+	                                         </table>
+	                                         </td>
+	                                      </tr>
+	                                      </t:loop>
+	                                      
+	                                      </table>
+	                                      </div>
+	                                      </td>
+	                                      </tr>
+	                                      
+	                                    </table>
+	                                    
+	                                </div>
+	                                </td>
+	                              </tr>
+                              </table>
+							</td>
+						</tr>
+					</table>
+ 	   			</td>
+            </tr>
+        </table>
+ 	 </td>
+ 	</tr>
+ </table>
+ <script t:type="dojo/tupdater" t:id="zoneUpdater" zone="wmInfoZone"/>
+ </body>
+
+<script type="text/javascript" >
+	timeID1=setInterval("updateZone()",3000);
+	
+	function updateZone(){
+		zoneUpdater.update();
+	}
+	
+
+	
+	/*function fireEvent(obj,evt){
+		var fireOnThis = obj;
+		if( document.createEvent ) {
+		  var evObj = document.createEvent('MouseEvents');
+		  evObj.initEvent( evt, true, false );
+		  fireOnThis.dispatchEvent(evObj);
+		} else if( document.createEventObject ) {
+		  fireOnThis.fireEvent('on'+evt);
+		}
+	}*/
+
+</script>
+
+</html>

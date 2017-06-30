@@ -1,0 +1,29 @@
+<html title="About collector"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <p>${prop:greeting}</p>
+    
+    <a href="#" t:type="pagelink" page="another"  >Another</a>
+    
+    <p>the component defined in the template class</p>
+      <a href="#" t:id="gotoAnother" > another</a>
+      
+      <a href="#" t:id="useActionLink" context="actionContext">another(Action Link)</a>
+     
+     <p> test cascade loop</p> 
+      <t:loop t:source="['1','2','3','4']" t:value="value" t:index="index">
+      		<t:if test="odd">
+      			odd line: ${index} <br/>
+      			<p:else>
+      			 even line: ${index} <br/>
+      			</p:else>
+      		</t:if>
+      		outer index ${index}, value=${value}<br/>
+      		<t:loop t:source="['1','2']" t:value="value2" t:index="var:index2">
+      			inner index ${var:index2}, value=${value2}<br/>
+      		</t:loop>
+      		<br/> <br/>
+      </t:loop>
+	
+</html>

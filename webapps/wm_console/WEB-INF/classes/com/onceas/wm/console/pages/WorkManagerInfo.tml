@@ -1,0 +1,55 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<head>
+		<link rel="stylesheet" type="text/css" href="${context:css/common.css}" />
+		<!--
+			A 2nd stylesheet link that enables preview but cannot be guaranteed
+			to work at runtime.
+		-->
+		<link rel="stylesheet" type="text/css" href="/css/common.css" />
+	
+<style type="text/css">
+table {
+	border:1px solid #000000; 
+}		
+
+td { 
+	border-bottom:1px solid #000000; 
+} 
+</style>	
+	
+	</head>
+
+	<body>
+		<br></br>
+		<div><center>
+		<form t:type="form" t:id="wmForm">
+			<table>
+				<tr><td>WorkManager</td></tr>
+				<tr>
+				<td>-----------------</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				</tr>
+				
+				<tr>
+					<td><t:label for="workManagerName"/>:</td> <td> <input t:type="textfield" t:id="workManagerName"  label="WorkManager名称" value="wmBean.name" validate="required"/></td>
+				</tr>
+				<tr>
+					<td><t:label for="maxConstraintName"/>:</td> <td><input t:type="textfield" t:id="maxConstraintName" label="Max Constraint名称"  value="wmBean.maxConstraintName" validate="required"/></td>
+				</tr>
+				<tr>
+					<td><t:label for="maxConstraintValue"/>:</td> <td><input t:type="textfield" t:id="maxConstraintValue" label="Max Constraint值"  value="wmBean.maxConstraintValue" validate="required"/></td>
+				</tr>
+				<tr>
+					<td></td> <td>  <t:submit t:id="submit" value="提交"/></td>
+				</tr>
+			</table>
+	</form>
+	</center></div>
+	</body>
+
+
+</html>

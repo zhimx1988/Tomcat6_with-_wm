@@ -1,0 +1,607 @@
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<head>
+		<link rel="stylesheet" type="text/css" href="${context:css/common.css}" />
+		<!--
+			A 2nd stylesheet link that enables preview but cannot be guaranteed
+			to work at runtime.
+		-->
+	<script type="text/javascript" src="${context:js/common.js}"/>
+<script type="text/javascript">
+		      
+<!-- 
+		      
+	
+	
+	 -->
+	</script>
+	</head>
+	<body>
+		<t:form name="wmForm" t:id='wmForm'>
+			<table width="100%" height="95%" border="1" bordercolor="#384379"
+				cellpadding="2" cellspacing="0">
+				<tr>
+					<td valign="top" bordercolor="#384379">
+						<table width="100%" border="1" bordercolor="#384379"
+							cellpadding="2" cellspacing="5">
+							<tr>
+								<td height="165" valign="top" bordercolor="#FFFFFF">
+									<table cellpadding="3" cellspacing="0">
+										<tr>
+											<t:if test="modify">
+												<td class="tab_font2">
+													<strong> 配置workmanager ${wmBean.name}</strong>
+												</td>
+												<p:else>
+													<td class="tab_font2">
+														<strong> workmanager</strong>
+													</td>
+												</p:else>
+											</t:if>
+										</tr>
+									</table>
+
+									<table width="100%" border="0" cellspacing="0"
+										cellpadding="0">
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+										<tr>
+											<td class="common_font2" width="20%">
+												<strong>WorkManager名称</strong>
+											</td>
+											<td class="common_font2" width="15%"></td>
+											<td class="common_font2">
+												<t:if test="modify">
+													<input t:type="textfield" disabled="true" maxlength="40"
+														size="20" value="wmBean.name" validate="required" />
+													<p:else>
+														<input t:type="textfield" maxlength="40" size="20"
+															value="wmBean.name" validate="required" />
+													</p:else>
+												</t:if>
+											</td>
+											<td class="common_font2" align="left"></td>
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2">
+												<strong>最大线程数约束：</strong>
+											</td>
+											<td class="common_font2" align="right">
+												<t:if test="maxExist">
+													<input t:type="checkbox" value="delMax" label="删除" t:id="delmax"/>删除
+												
+												</t:if>
+											</td>
+											<td align="left" class="common_font2">
+												<br />
+											</td>
+											<td class="common_font2">
+												<br />
+											</td>
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2">
+											</td>
+											<td class="common_font2">名称 </td>
+											<td align="center" class="common_font2">
+												<t:if test="maxExist">
+													<input t:type="textfield" disabled="true"
+														value="wmBean.maxThreadConstraintName" maxlength="40" size="20" tips="test" id='maxName'/>
+													<p:else>
+														<input t:type="textfield" value="wmBean.maxThreadConstraintName" tips="test" id='maxName'
+															maxlength="40" size="20" />
+													</p:else>
+												</t:if>
+											</td>
+											<td>
+												<!-- <t:hidden t:id="maxFlag" value="maxFlag" /> -->
+											</td>
+											
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10" align="right"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2">
+												<br />
+											</td>
+											<td class="common_font2" align="right">
+												最大线程数
+												<br />
+											</td>
+											<td align="center" class="common_font2">
+												<input t:type="textfield" maxlength="40" size="20"
+													value="wmBean.maxThreadConstraintValue" t:id="maxValue"/><div id='maxLabel'></div>
+											</td>
+											<td class="common_font2">设置能够分配给执行请求的最大并发线程数量</td>
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="15" align="right"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2">
+												<strong>最小线程数约束：</strong>
+											</td>
+											<td class="common_font2" align="right">
+												<t:if test="minExist">
+													<input t:type="checkbox" value="delMin" label="删除" t:id="delmin"/>删除
+												</t:if>
+											</td>
+											<td align="left" class="common_font2">
+												<br />
+											</td>
+											<td class="common_font2">
+												<br />
+											</td>
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10" align="right"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2" align="right">
+												<br />
+											</td>
+											<td class="common_font2" align="right">名称 </td>
+											<td align="center" class="common_font2">
+												<t:if test="minExist">
+													<input t:type="textfield" disabled="true" maxlength="40"
+														size="20" value="wmBean.minThreadConstraintName" id='minName'/>
+													<p:else>
+														<input t:type="textfield" maxlength="40" size="20"
+															value="wmBean.minThreadConstraintName" id='minName'/>
+													</p:else>
+												</t:if>
+												<!-- <t:hidden t:id="minFlag" value="minFlag" /> -->
+											</td>
+											<td class="common_font2"></td>
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10" align="right"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2" align="right">
+												<br />
+											</td>
+											<td class="common_font2" align="right">最小线程数</td>
+											<td align="left" class="common_font2">
+												<input t:type="textfield" maxlength="40" size="20"
+													value="wmBean.minThreadConstraintValue" t:id="minValue" /><div id='minLabel'></div>
+											</td>
+											<td class="common_font2">设置能够分配给执行请求的最小并发线程数量</td>
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2" align="right">
+												<strong>最大请求容量约束：</strong>
+											</td>
+											<td align="left" class="common_font2">
+												<t:if test="capacityExist">
+													<input t:type="checkbox" value="delCapacity" label="删除" t:id="delcap"/>删除
+												</t:if>
+											</td>
+											<td class="common_font2">
+												<br />
+											</td>
+											<td class="common_font2">设置能够处理的请求总数量（包括正在处理的请求和队列中等待的请求）</td>
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2">
+												<br />
+											</td>
+											<td class="common_font2" align="right"> 名称 </td>
+											<td align="center" class="common_font2">
+												<t:if test="capacityExist">
+													<input t:type="textfield" disabled="true" maxlength="40"
+														size="20" value="wmBean.capacityConstraintName" id='capName'/>
+													<p:else>
+														<input t:type="textfield" maxlength="40" size="20" id='capName'
+															value="wmBean.capacityConstraintName" />
+													</p:else>
+												</t:if>
+												<!-- <t:hidden t:id="capacityFlag" value="capacityFlag" /> -->
+											</td>
+											<td class="common_font2"></td>
+										</tr>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+										<tr>
+											<td class="common_font2">
+												<br />
+											</td>
+											<td class="common_font2" align="right">最大请求数</td>
+											<td align="left" class="common_font2">
+												<input t:type="textfield" maxlength="40" size="20"
+													value="wmBean.capacityConstraintValue" t:id="capValue"/><div id='capLabel'></div>
+											</td>
+											<td class="common_font2">workmanager描述</td>
+										</tr>
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+											<td t:type="any" background="context:images/line.gif" height="15"></td>
+										</tr>
+
+										<tr>
+											<td class="common_font2" align="right">
+												<strong>请求类别：</strong>
+											</td>
+											<td align="left" class="common_font2">
+												<br />
+											</td>
+											<td class="common_font2">
+												<br />
+											</td>
+											<td class="common_font2">workmanager描述</td>
+										</tr>
+
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+
+										<t:if test="shareAndresponseBothExist">
+											<tr>
+												<td class="common_font2">
+												</td>
+												<td align="left" class="common_font2">
+												<input type="radio" name="createRequestClass" onclick="showsubcontent(this,'fairshare')" />
+												 	<strong>fair-share requst class ：</strong>
+													<br />
+												</td>
+												<td class="common_font2">
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+											
+											<tr class="subcontent" id="fair1" style="display:none">
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+											<tr class="subcontent" id="fair2" style="display:none">
+												<td class="common_font2">
+													<br />
+												</td>
+												<td class="common_font2" align="right">
+													名称
+															     </td>
+												<td align="center" class="common_font2">
+													<input t:type="textfield" maxlength="40" size="20"
+														value="wmBean.fairShareRequestClassName" id='fair1Name'/>
+																	
+													<!-- <t:hidden value="fairShareFlag" /> -->
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+
+											<tr class="subcontent" id="fair3" style="display:none">
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+											<tr class="subcontent" id="fair4" style="display:none">
+												<td class="common_font2">
+													<br />
+												</td>
+
+												<td class="common_font2" align="right">fair share  
+                                                                </td>
+												<td align="left" class="common_font2">
+													<input t:type="textfield" maxlength="40" size="20"
+														value="wmBean.fairShare" t:id="fairValue1"/><label id="fair1Label"></label>
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+
+											<tr>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+
+
+											<tr>
+												<td class="common_font2">
+												</td>
+												<td align="left" class="common_font2">
+													
+													<input type="radio" name="createRequestClass" onclick="showsubcontent(this,'responsetime')" />
+													 
+													<strong>response-time requst class ：</strong>
+													<br />
+												</td>
+												<td class="common_font2">
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+
+											<tr class="subcontent" id="response1" style="display:none">
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+
+
+											<tr class="subcontent" id="response2" style="display:none">
+												<td class="common_font2">
+													<br />
+												</td>
+												<td class="common_font2" align="right">
+													名称
+												</td>
+												<td align="center" class="common_font2">
+													<input t:type="textfield" maxlength="40" size="20"
+														value="wmBean.responseTimeRequestClassName" id='goal1Name'/>
+																	
+												<!-- 	<t:hidden value="responseTimeFlag" /> -->
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+
+											<tr class="subcontent" id="response3" style="display:none">
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+											<tr class="subcontent" id="response4" style="display:none">
+												<td class="common_font2">
+													<br />
+												</td>
+
+												<td class="common_font2" align="right">
+													goal time
+													<br />
+												</td>
+												<td align="left" class="common_font2">
+													<input t:type="textfield" maxlength="40" size="20"
+														value="wmBean.goalTime" t:id="goalValue1"/><label id='goal1Label'></label>
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+										</t:if>
+
+										<t:if test="onlyFairExist">
+											<tr>
+												<td class="common_font2">
+												</td>
+												<td align="left" class="common_font2">
+													<strong>fair-share requst class ：</strong>
+													<br />
+												</td>
+												<td class="common_font2">
+													<input t:type="checkbox" value="delFairShare" t:id="delfair"/>删除
+												</td>
+
+
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+
+											<tr>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+											<tr>
+												<td class="common_font2">
+													<br />
+												</td>
+												<td class="common_font2" align="right">
+													名称
+												</td>
+												<td align="center" class="common_font2">
+													<input t:type="textfield" disabled="true" maxlength="40"
+														size="20" value="wmBean.fairShareRequestClassName" id='fair2Name'/>
+																	
+												<!-- 	<input type="hidden" name="fairShareFlag" /> -->
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+
+											<tr>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+											<tr>
+												<td class="common_font2">
+													<br />
+												</td>
+
+												<td class="common_font2" align="right">fair share  
+                                                                </td>
+												<td align="left" class="common_font2">
+													<input t:type="textfield" maxlength="40" size="20"
+														value="wmBean.fairShare" t:id="fairValue2"/><label id='fair2Label'></label>
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+											<tr>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+										</t:if>
+
+										<t:if test="onlyResponseExist">
+
+											<tr>
+												<td class="common_font2">
+												</td>
+												<td align="left" class="common_font2">
+													<strong>response-time requst class ：</strong>
+													<br />
+												</td>
+												<td class="common_font2">
+
+													<input t:type="checkbox" value="delResponseTime" t:id="delgoal"/>删除
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+
+											<tr>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+
+
+											<tr>
+												<td class="common_font2">
+													<br />
+												</td>
+												<td class="common_font2" align="right">
+													名称
+												</td>
+												<td align="center" class="common_font2">
+													<input t:type="textfield" disabled="true" maxlength="40"
+														size="20" value="wmBean.responseTimeRequestClassName" id='goal2Name'/>
+																	
+													<!-- <input type="hidden" name="responseTimeFlag" /> -->
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+
+
+											<tr>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+												<td t:type="any" background="context:images/line.gif" height="10"></td>
+											</tr>
+											<tr>
+												<td class="common_font2">
+													<br />
+												</td>
+
+												<td class="common_font2" align="right">
+													goal time
+													<br />
+												</td>
+												<td align="left" class="common_font2">
+													<input t:type="textfield" maxlength="40" size="20"
+														value="wmBean.goalTime" t:id="goalValue2"/><label id='goal2Label'></label>
+												</td>
+												<td class="common_font2">workmanager描述</td>
+											</tr>
+										</t:if>
+
+										<tr>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+											<td t:type="any" background="context:images/line.gif" height="10"></td>
+										</tr>
+
+									</table>
+
+								</td>
+							</tr>
+						</table>
+						<table align="right" border="0" cellpadding="0" cellspacing="0">
+							<tr valign="middle" align="right">
+								<td>
+									<input value='修改' type="button" width="84" height="23" border="0" id="changeBTN" context="appName" onclick="checksubmit()"/>
+								</td>
+								<td>
+								</td>
+								<td class="tab_font" t:type="any" background="context:images/new_bg01_84x23.gif"
+									width="84" height="23">
+									<a  t:type="pagelink" page="workManagerList" context="appName">
+										<font face="Arial, Helvetica, sans-serif">返回</font>
+									</a>
+								</td>
+								<td>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</t:form>
+	</body>
+
+
+</html>

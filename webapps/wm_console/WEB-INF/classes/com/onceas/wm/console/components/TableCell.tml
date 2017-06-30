@@ -1,0 +1,14 @@
+<t:dojo.dummy xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+		<table>
+		  <tr>
+		  	<t:if test="boundName">
+		  		<td>${name}:</td>
+		  	</t:if>
+			<td><t:cellchart value="prop:percentValue"/></td>
+			<td><div align="right" style="width:60px;" >${formatedValue}</div></td>
+		  </tr>
+		</table>
+	
+</t:dojo.dummy>

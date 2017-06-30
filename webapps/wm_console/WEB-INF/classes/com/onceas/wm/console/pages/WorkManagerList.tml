@@ -1,0 +1,67 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<head>
+		<link rel="stylesheet" type="text/css" href="context:css/common.css"></link>
+		
+		 <script language="javascript">
+	       function delConfirm(objName){
+	         var msg = "确定删除 "+objName+" 吗？";
+	         if(confirm(msg))
+	               return true;
+	         else
+	        	return false;
+	       }
+ 		</script>
+	</head>
+
+	<body>
+
+		<table width="100%" border="1" bordercolor="#384379" cellpadding="2" cellspacing="5">
+			<tr>
+				<td height="165" valign="top" bordercolor="#FFFFFF">
+					<table cellpadding="3" cellspacing="0">
+						<tr>
+							<td class="tab_font2">
+								<strong>应用${webappName}配置的WorkManager列表</strong>
+							</td>
+			
+						</tr>
+					</table>
+					<table width="100%" borderColor="#890D0D" border="1"
+						cellspacing="0" bordercolorlight="#384379" bordercolordark="#FFFFFF"
+						cellpadding="1">
+						<tr>
+							<td class="normal2" height="30"> 名字</td>
+							<td class="normal2" height="30">类型</td>
+							<td class="normal2" height="30" colspan="2" align="center">操作</td>
+						</tr>
+						<t:loop source="workManagers" value="wmBean">
+						<tr>
+							<td class="common_font2"> ${wmBean.name}</td>
+							<td class="common_font2"> ${wmBean.type}</td>
+							<td class="common_font2">
+								<a  t:type="pagelink" page="workManagerOps" context="updateContext">修改</a>
+							</td>
+							<td class="common_font2">
+								<a  t:type="actionlink" t:id="delete" context="deleteContext" onclick="javascript:return delConfirm('${wmBean.name}');" >删除</a>
+							</td>
+						</tr>
+						</t:loop>
+					</table>
+					
+		       	    <table  align="right" border="0" cellpadding="0" cellspacing="0">
+                      <tr  valign="middle" align="right">
+                        <td t:type="any" class="tab_font" background="context:images/new_bg01_84x23.gif" width="84" height="23">
+                        <!-- <a  t:type="pagelink" page="workManagerCreate" context="webappName"></a> -->
+                        <a  t:type="pagelink" page="workManagerOps" context="webappName">
+                        <center><font face="Arial, Helvetica, sans-serif">添加</font></center></a></td>
+                   		<td t:type="any" class="tab_font" background="context:images/new_bg01_84x23.gif" width="84" height="23"><a  t:type="actionlink" t:id="persist" context="webappName"><center><font face="Arial, Helvetica, sans-serif">持久化修改</font></center></a></td>
+                   		<td t:type="any" align="center" class="tab_font" background="context:images/new_bg01_84x23.gif" width="84" height="23"><a t:type="pagelink" page="webapplist"><font face="Arial, Helvetica, sans-serif">返回</font></a></td>
+                      </tr>
+                    </table>
+				</td>
+			</tr>
+		</table>
+	</body>
+
+</html>

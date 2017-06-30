@@ -1,0 +1,41 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+	<script t:type="dojo/lib"/>
+	<style type="text/css">
+
+
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		padding: 0;
+		margin: 0;
+		background-color:#fff;
+		background-image:none;
+		
+	}
+	</style>
+	<link  t:type="any" rel="stylesheet" type="text/css" href="context:css/common.css"></link>
+</head>
+
+<body t:type="dojo/body">
+
+	<form t:type="form" t:id="form">
+			<table border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+				 <thead>
+				 	<t:if test="simpleDisplay">
+				 		<th>Application Name</th><th>WorkManager</th> <th>Configuration</th><th>Value</th> <th>Description</th>
+				 		<p:else>
+				 			<th>Application Name</th><th>WorkManager</th><th>WM Type</th><th>Referenced WM</th><th>Role</th><th>Group</th> <th>Configuration</th><th>Value</th> <th>Description</th>
+				 		</p:else>
+				 	</t:if>
+			     </thead>
+			     <t:loop source="wmConfigs" value="config" >
+					<t:wmconfigrow model="config"/>
+				</t:loop>
+			</table>
+	</form >
+	
+</body>
+
+</html>

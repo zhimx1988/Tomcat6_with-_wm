@@ -1,0 +1,43 @@
+<t:dojo.dummy xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+		<!-- 
+			 <thead>
+		       <th>Application Name</th><th>WorkManager</th> <th>Configuration</th><th>Value</th> <th>Description</th>
+		     </thead>
+		   -->
+		<tr>
+			<td>${model.appName}</td>
+			<td>${model.wmName}</td>
+			<td>${model.wmType}</td>
+			<!--  
+			<td>${model.wmNameReferencedByContextConstraint}</td>
+			<td>${model.user}</td>
+			<td>${model.group}</td>
+			-->
+			
+			<td>		
+				<div t:type="includeWrapper" sliderValueUpdater="slidervalueupdater"  sliderValueInput="sliderinput" dojoType="dijit.form.HorizontalSlider" name="horizontal1"
+					onChange='javascript:$sliderValueUpdater.updateValue(arguments[0],$sliderValueInput);'
+					value="${model.maxConstraintValue}"
+					maximum="30"
+					minimum="0"
+					showButtons="true"
+					intermediateChanges="true"
+					slideDuration="500"
+					discreteValues="31"
+					style="width:500px; height: 20px;"
+					id="slider1">
+						<ol t:type="dojo/include" dojoType="dijit.form.HorizontalRuleLabels" container="topDecoration" style="height:1.2em;font-size:75%;" count="16" numericMargin="1"  maximum="30" constraints="{pattern:'#'}"></ol>
+						<div  t:type="dojo/include" dojoType="dijit.form.HorizontalRule" container="topDecoration" count="31" style="height:.4em;"></div>
+						<div  t:type="dojo/include" dojoType="dijit.form.HorizontalRule" container="topDecoration" count="16" style="height:.4em;"></div>
+					
+				</div>
+			</td>
+			<td><span t:type="any" t:id="sliderinput"  size="4"> ${model.maxConstraintValue}</span></td>
+			<td>description...</td>
+		</tr>
+	<script t:type="dojo/tjsonrequester" t:id="tjsonrequester"/>
+	<script t:type="slidervalueupdater" t:id="slidervalueupdater" key="wmKey" tjsonrequester="tjsonrequester"/>
+	
+</t:dojo.dummy>

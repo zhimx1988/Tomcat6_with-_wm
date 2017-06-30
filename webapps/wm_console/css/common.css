@@ -1,0 +1,128 @@
+.common_font
+{
+	font-size:16px;
+	font-family:Arial;
+        text-align:center;
+}
+
+.common_font2
+{
+	font-size:12px;
+	font-family:Arial;
+        text-align:left;
+}
+
+.common_table
+{
+	border:2px solid;
+	BORDER-COLOR: #a9a9a9;
+	font-family:Arial;
+	margin-top:0px;
+}
+
+.tab_font
+{
+	font-size:12px;
+	font-family:Arial;
+        text-align:center;
+}
+
+.tab_font2
+{
+	font-size:12px;
+	font-family:Arial;
+        text-align:left;
+        text-valign:middle;
+}
+
+p.normal
+{
+	font-family:Arial;
+	FONT-SIZE: 16px;
+	text-align:center;
+	font-weight:500;
+	padding-top:2px;
+}
+
+body
+{
+  	background-image:url(images/once_back.gif);
+}
+
+TD.normal
+{
+	text-align:left;
+        font-family:Arial;
+        font-size:12px;
+	line-height: 115%;
+	padding:2px,5px,3px,5px;
+}
+
+TD.normal2
+{
+	text-align:left;
+        font-family:Arial;
+        font-size:12px;
+	line-height:115%;
+	padding:2px,5px,3px,5px;
+}
+
+TD.tablehead
+{
+  	padding:0px,0px,0px,0px;
+}
+
+TD.center
+{
+	text-align:center;
+	line-height:125%;
+}
+
+A:link {
+	TEXT-DECORATION: none;
+}
+
+A:visited {
+	COLOR: #3366cc; TEXT-DECORATION: none;
+}
+A:active {
+	COLOR: #6610ff; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff4400; TEXT-DECORATION: none
+}
+
+input
+{
+	font-size=15px;
+	text-align:center;
+	line-height: 115%;
+	font-weight:600;
+	font-family:Arial,ËÎÌו;
+	color:#384379;
+}
+
+input.normal
+{
+	background-color: #F0F0FF;
+	border: #000000 solid 1px;
+	font-size:14px;
+	font-weight:600;
+	font-family:Arial;
+}
+
+input.dotted
+{
+  	color: #384379;
+       	border: 1px dotted #297DD6;
+}
+
+select
+{
+	font-size=15px;
+	text-align:center;
+	line-height: 115%;
+	font-family:Arial,ËÎÌו;
+}
+
+

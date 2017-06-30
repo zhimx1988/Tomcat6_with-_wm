@@ -1,0 +1,29 @@
+<!--
+
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Title      : Concrete
+Version    : 1.0
+Released   : 20080825
+Description: A Web 2.0 design with fluid width suitable for blogs and small websites.
+-->
+<html  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+ <head>
+ 	<title>Custom Component Test</title>
+ 	
+ 	<link rel="stylesheet" href="${asset:context:/css/test.css}" type="text/css"/>
+ </head>
+ <body>
+     <p align="right">
+       <img src="${asset:context:}" align="middle" alt=""/>
+       <a t:type="actionLink" t:id="swithchLocale">${localeLabel}</a>
+     </p>
+     <t:body/>
+ </body>
+
+
+</html>
